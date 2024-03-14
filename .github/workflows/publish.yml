@@ -40,7 +40,7 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: latest,${{ steps.current-time.outputs.formattedTime }}
+          tags: latest, ${{ steps.current-time.outputs.formattedTime }}
 
       - name: Update Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
