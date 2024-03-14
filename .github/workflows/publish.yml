@@ -40,11 +40,11 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ GITHUB_REPOSITORY }}:latest, ${{ GITHUB_REPOSITORY }}:${{ steps.current-time.outputs.formattedTime }}
+          tags: ${{ env.GITHUB_REPOSITORY }}:latest, ${{ env.GITHUB_REPOSITORY }}:${{ steps.current-time.outputs.formattedTime }}
 
       - name: Update Docker Hub Description
         uses: peter-evans/dockerhub-description@v3
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
-          DOCKERHUB_REPOSITORY: ${{ GITHUB_REPOSITORY }}
+          DOCKERHUB_REPOSITORY: ${{ env.GITHUB_REPOSITORY }}
