@@ -9,6 +9,10 @@ fi
 # Start dnsmasq
 echo "Starting dnsmasq with DHCP_RANGE_START ${DHCP_RANGE_START} and CONTAINER_IP ${CONTAINER_IP}"
 dnsmasq --no-daemon --dhcp-range=${DHCP_RANGE_START},proxy \
-    --dhcp-boot=tag:ipxe-bios,netboot.xyz.kpxe,,${CONTAINER_IP} \
-    --dhcp-boot=tag:ipxe-efi,netboot.xyz.efi,,${CONTAINER_IP} \
+    --dhcp-boot=tag:bios,netboot.xyz.kpxe,,${CONTAINER_IP} \
+    --dhcp-boot=tag:efi32,netboot.xyz.efi,,${CONTAINER_IP} \
+    --dhcp-boot=tag:efi32-1,netboot.xyz.efi,,${CONTAINER_IP} \
+    --dhcp-boot=tag:efi64,netboot.xyz.efi,,${CONTAINER_IP} \
+    --dhcp-boot=tag:efi64-1,netboot.xyz.efi,,${CONTAINER_IP} \
+    --dhcp-boot=tag:efi64-2,netboot.xyz.efi,,${CONTAINER_IP} \
     ${DNSMASQ_ARGS}
